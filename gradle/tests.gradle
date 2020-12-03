@@ -1,0 +1,13 @@
+test {
+  useTestNG()
+
+  include 'com/codeborne/selenide/testng/**/*'
+  systemProperties['selenide.browser'] = 'chrome'
+  systemProperties['selenide.headless'] = 'true'
+  systemProperty('file.encoding', encoding)
+  systemProperty('BUILD_URL', System.getenv()['BUILD_URL'])
+  jvmArgs = ['-ea', '-Xmx512m']
+  outputs.upToDateWhen {
+    false
+  }
+}
